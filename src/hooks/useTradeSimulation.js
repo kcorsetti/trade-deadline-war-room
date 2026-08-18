@@ -117,5 +117,25 @@ export default function useTradeSimulation() {
     setStep((value) => value + 1);
   };
 
-  return { players, trades: tradeData, rules, setRules, step, result, advance };
+  const reset = () => {
+    setPlayers(
+      playerData.map((p) => ({
+        ...p,
+        role: positionToRole(p.position),
+        originalPv: p.pv,
+        pv: p.pv,
+        delta: 0,
+        reason: "—",
+        locked: false,
+        changedAt: 0,
+      }))
+    );
+    setRules(initialRules);
+    setStep(0);
+    setResult(null);
+    setHeatMultipliers({ SP: 1.0, RP: 1.0, "Position Player": 1.0 });
+    setTargetedAdjustments({});
+  };
+
+  return { players, trades: tradeData, rules, setRules, step, result, advance, reset };
 }

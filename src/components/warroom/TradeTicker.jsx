@@ -1,6 +1,6 @@
-import { ArrowRight, Radio } from "lucide-react";
+import { ArrowRight, Radio, RotateCcw } from "lucide-react";
 
-export default function TradeTicker({ result, step, total, onNext }) {
+export default function TradeTicker({ result, step, total, onNext, onReset }) {
   const done = step >= total;
   return (
     <section className="ticker-panel">
@@ -40,9 +40,14 @@ export default function TradeTicker({ result, step, total, onNext }) {
           )}
         </div>
       )}
-      <button className="next-button" onClick={onNext} disabled={done}>
-        {done ? "Simulation complete" : <>Next trade <ArrowRight size={16} /></>}
-      </button>
+      <div className="button-row">
+        <button className="next-button" onClick={onNext} disabled={done}>
+          {done ? "Simulation complete" : <>Next trade <ArrowRight size={16} /></>}
+        </button>
+        <button className="reset-button" onClick={onReset} disabled={step === 0}>
+          <RotateCcw size={14} /> Reset
+        </button>
+      </div>
     </section>
   );
 }

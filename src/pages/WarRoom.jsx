@@ -17,7 +17,7 @@ export default function WarRoom() {
           <PlayerTable title="Cardinals Assets" players={assets} step={simulation.step} />
           <PlayerTable title="Trade Targets" players={targets} step={simulation.step} />
         </div>
-        <TradeTicker result={simulation.result} step={simulation.step} total={simulation.trades.length} onNext={simulation.advance} />
+        <TradeTicker result={simulation.result} step={simulation.step} total={simulation.trades.length} onNext={simulation.advance} onReset={simulation.reset} />
         <RulesPanel rules={simulation.rules} setRules={simulation.setRules} />
       </div>
     </main>
