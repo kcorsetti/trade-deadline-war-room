@@ -3,7 +3,8 @@ import { Activity } from "lucide-react";
 export default function BoardHeader({ step, total }) {
   return (
     <header className="board-header">
-      <div>
+      <img src="https://media.base44.com/images/public/6a83ba781963ba54b39b263d/6dd4799da_AppLogo.png" alt="Cardinals War Room" className="board-logo" />
+      <div className="board-titles">
         <p className="eyebrow">Trade Deadline War Room Tracker</p>
         <h1>Cardinals Trade Value Board</h1>
       </div>
