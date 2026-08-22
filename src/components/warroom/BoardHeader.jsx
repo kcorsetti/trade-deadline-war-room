@@ -1,4 +1,5 @@
 import { Activity } from "lucide-react";
+import HowItWorksButton from "./HowItWorksButton";
 
 export default function BoardHeader({ step, total }) {
   return (
@@ -8,6 +9,7 @@ export default function BoardHeader({ step, total }) {
         <p className="eyebrow">Trade Deadline War Room Tracker</p>
         <h1>Cardinals Trade Value Board</h1>
       </div>
+      <HowItWorksButton />
       <div className="live-status"><Activity size={15} /> MANUAL SIMULATION <span>{step}/{total}</span></div>
     </header>
   );
