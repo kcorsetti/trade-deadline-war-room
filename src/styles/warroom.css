@@ -23,6 +23,11 @@ th { text-align:left; color:var(--wr-muted); font-size:9px; letter-spacing:.1em;
 td { padding:13px; border-top:1px solid #202b34; white-space:nowrap; color:#ffffff; }
 th:first-child { width:25%; } th:last-child { width:48%; }
 .player-name { display:flex; align-items:center; gap:7px; color:#ffffff; }.pv { font-weight:600; }.reason { color:#ffffff; white-space:normal; }
+.ti-badge { display:inline-flex; align-items:center; margin-left:5px; cursor:pointer; color:#547c99; vertical-align:middle; transition:color .15s; }
+.ti-badge:hover { color:#7ba5c4; }
+.ti-card { position:fixed; z-index:1000; background:#0c141b; border:1px solid #3a4a57; border-radius:4px; padding:8px 12px; display:grid; gap:3px; white-space:nowrap; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+.ti-label { font:600 9px "IBM Plex Mono",monospace; letter-spacing:.12em; color:#d44a58; text-transform:uppercase; }
+.ti-teams { font:600 12px "IBM Plex Mono",monospace; color:#ffffff; }
 .positive { color:var(--green); }.negative { color:#ee7180; }.locked { opacity:.42; background:#0a1015; }
 tr.changed { animation:rowFlash 1.3s ease-out; }
 @keyframes rowFlash { 0% { background:rgba(229,183,91,.25); } 100% { background:transparent; } }
