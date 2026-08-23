@@ -11,21 +11,21 @@ export default function LivePipeline() {
       </div>
       <div className="ticker-content">
         <p className="wire-label">LIVE PIPELINE</p>
-        <p className="pipeline-desc">
-          A raw trade headline arrives from a live news source. An LLM call
-          parses it into the same structured format the queued events already
-          use: role, players involved, and teams. The same Market Heat and
-          Targeted Comp Impact rules fire automatically on every incoming
-          event. No manual event curation is needed in live mode, since that
-          mapping only exists today because a human built it in advance for the
-          simulation dataset.
+        <p className="pipeline-desc">A raw trade headline arrives from a live news source. An LLM call parses it into the same structured format the queued events already use: role, players involved, and teams. The same Market Heat and Targeted Comp Impact rules fire automatically on every incoming event. No manual event curation is needed in live mode, since the parser identifies and maps those effects automatically instead of relying on a pre-built event list.
+
+
+
+
+
+
+
         </p>
-        <button className="logic-toggle" onClick={() => setShowLogic(s => !s)}>
+        <button className="logic-toggle" onClick={() => setShowLogic((s) => !s)}>
           {showLogic ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
           View parsing logic
         </button>
-        {showLogic && (
-          <div className="code-block">
+        {showLogic &&
+        <div className="code-block">
             <pre>{`parseTradeHeadline(headline) {
 
   // 1. Send the raw headline to the LLM with a
@@ -64,8 +64,8 @@ export default function LivePipeline() {
   return structuredEvent
 }`}</pre>
           </div>
-        )}
+        }
       </div>
-    </section>
-  );
+    </section>);
+
 }
