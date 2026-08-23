@@ -5,7 +5,7 @@ export default function TradeTicker({ result, step, total, onNext, onReset }) {
   return (
     <section className="ticker-panel">
       <div className="panel-title">
-        <h2><Radio size={16} /> Deadline Wire</h2>
+        <h2><Radio size={16} /> Simulation Wire</h2>
         <span>Event {step || "—"} of {total}</span>
       </div>
       {!result ? (
