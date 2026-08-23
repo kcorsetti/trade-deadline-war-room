@@ -32,10 +32,6 @@ export default function LivePipeline() {
 
   // Poll MLB Trade Rumors' public transactions
   // RSS feed on a 30-second interval.
-  // NOTE: MLBTR's feed is designated for private,
-  // non-commercial use. A real deployment would
-  // need their permission or a licensed data
-  // provider first.
   setInterval(async () => {
     feed = await fetch(
       "https://www.mlbtraderumors.com/feed/atom"
