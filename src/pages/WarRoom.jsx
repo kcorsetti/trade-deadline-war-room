@@ -21,7 +21,7 @@ export default function WarRoom() {
           <PlayerTable title="Trade Targets" players={targets} step={simulation.step} />
         </div>
         {mode === "simulation" ? (
-          <TradeTicker result={simulation.result} step={simulation.step} total={simulation.trades.length} onNext={simulation.advance} onReset={simulation.reset} />
+          <TradeTicker result={simulation.result} step={simulation.step} total={simulation.trades.length} onNext={simulation.advance} onReset={simulation.reset} players={simulation.players} onSimulateCustom={simulation.simulateCustomTrade} onClearCustom={simulation.clearCustomTest} customActive={simulation.customActive} />
         ) : (
           <LivePipeline />
         )}

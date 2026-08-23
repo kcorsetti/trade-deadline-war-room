@@ -42,6 +42,7 @@ export default function useTradeSimulation() {
     "Position Player": 1.0,
   });
   const [targetedAdjustments, setTargetedAdjustments] = useState({});
+  const [customSnapshot, setCustomSnapshot] = useState(null);
 
   const advance = () => {
     const trade = tradeData[step];
@@ -117,6 +118,82 @@ export default function useTradeSimulation() {
     setStep((value) => value + 1);
   };
 
+  const simulateCustomTrade = ({ role, affectedPlayer, ruleType, magnitude, headline }) => {
+    const hasSnapshot = !!customSnapshot;
+    const basePlayers = hasSnapshot ? customSnapshot.players : players;
+    const baseHeat = hasSnapshot ? customSnapshot.heatMultipliers : heatMultipliers;
+    const baseAdjustments = hasSnapshot ? customSnapshot.targetedAdjustments : targetedAdjustments;
+
+    if (!hasSnapshot) {
+      setCustomSnapshot({ players, heatMultipliers, targetedAdjustments, result });
+    }
+
+    const mag = (magnitude || 5) / 100;
+    const sign = ruleType ? (RULE_DIRECTIONS[ruleType] >= 0 ? 1 : -1) : 1;
+
+    const newHeat = { ...baseHeat };
+    if (rules.marketHeat) newHeat[role] += 0.025;
+
+    const newAdjustments = { ...baseAdjustments };
+    if (affectedPlayer && ruleType && rules[ruleType]) {
+      newAdjustments[affectedPlayer] = (newAdjustments[affectedPlayer] || 0) + sign * mag;
+    }
+
+    const trade = {
+      headline: headline || `Custom ${role} trade`,
+      role,
+      eventType: "Custom",
+      affectedPlayer: affectedPlayer || null,
+      ruleType: ruleType || null,
+      rationale: affectedPlayer && ruleType
+        ? `Custom test: ${ruleType} ${sign > 0 ? "+" : "-"}${(mag * 100).toFixed(0)}%`
+        : null,
+    };
+
+    const changes = [];
+    const newPlayers = basePlayers.map((player) => {
+      if (player.locked) return { ...player, delta: 0 };
+
+      const newPv = Number(
+        (player.originalPv * newHeat[player.role] * (1 + (newAdjustments[player.name] || 0))).toFixed(2)
+      );
+      const delta = Number((newPv - player.pv).toFixed(2));
+
+      const reasons = [];
+      if (rules.marketHeat && player.role === role)
+        reasons.push(`${role} Market Heat +2.5%`);
+      if (affectedPlayer === player.name && ruleType && rules[ruleType]) {
+        reasons.push(`${ruleType} ${sign > 0 ? "+" : "-"}${(mag * 100).toFixed(0)}%`);
+      }
+
+      if (delta !== 0) {
+        changes.push({ name: player.name, delta, pv: newPv, rationale: reasons.join(" · ") });
+      }
+
+      return {
+        ...player,
+        pv: newPv,
+        delta,
+        reason: reasons.join(" · ") || player.reason,
+        changedAt: delta !== 0 ? step : player.changedAt,
+      };
+    });
+
+    setHeatMultipliers(newHeat);
+    setTargetedAdjustments(newAdjustments);
+    setPlayers(newPlayers);
+    setResult({ trade, changes });
+  };
+
+  const clearCustomTest = () => {
+    if (!customSnapshot) return;
+    setPlayers(customSnapshot.players);
+    setHeatMultipliers(customSnapshot.heatMultipliers);
+    setTargetedAdjustments(customSnapshot.targetedAdjustments);
+    setResult(customSnapshot.result);
+    setCustomSnapshot(null);
+  };
+
   const reset = () => {
     setPlayers(
       playerData.map((p) => ({
@@ -135,7 +212,8 @@ export default function useTradeSimulation() {
     setResult(null);
     setHeatMultipliers({ SP: 1.0, RP: 1.0, "Position Player": 1.0 });
     setTargetedAdjustments({});
+    setCustomSnapshot(null);
   };
 
-  return { players, trades: tradeData, rules, setRules, step, result, advance, reset };
+  return { players, trades: tradeData, rules, setRules, step, result, advance, reset, simulateCustomTrade, clearCustomTest, customActive: !!customSnapshot };
 }
