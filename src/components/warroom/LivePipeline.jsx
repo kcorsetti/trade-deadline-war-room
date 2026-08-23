@@ -24,8 +24,37 @@ export default function LivePipeline() {
           {showLogic ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
           View parsing logic
         </button>
-        {showLogic &&
-        <div className="code-block">
+        {showLogic && (
+          <>
+          <p className="wire-label" style={{ marginTop: 14 }}>INGESTION LAYER</p>
+          <div className="code-block">
+            <pre>{`fetchLatestHeadlines() {
+
+  // Poll MLB Trade Rumors' public transactions
+  // RSS feed on a 30-second interval.
+  // NOTE: MLBTR's feed is designated for private,
+  // non-commercial use. A real deployment would
+  // need their permission or a licensed data
+  // provider first.
+  setInterval(async () => {
+    feed = await fetch(
+      "https://www.mlbtraderumors.com/feed/atom"
+    )
+    entries = parseFeed(feed)
+
+    for (entry of entries) {
+      if (isNew(entry)) {
+        headline = entry.title
+        // Pass into the same parser the
+        // simulation already uses
+        parseTradeHeadline(headline)
+      }
+    }
+  }, 30000)
+}`}</pre>
+          </div>
+          <p className="wire-label" style={{ marginTop: 14 }}>PARSING LOGIC</p>
+          <div className="code-block">
             <pre>{`parseTradeHeadline(headline) {
 
   // 1. Send the raw headline to the LLM with a
@@ -64,7 +93,8 @@ export default function LivePipeline() {
   return structuredEvent
 }`}</pre>
           </div>
-        }
+          </>
+        )}
       </div>
     </section>);
 
