@@ -7,19 +7,12 @@ export default function LivePipeline() {
     <section className="ticker-panel live-pipeline">
       <div className="panel-title">
         <h2><Radio size={16} /> Live Feed</h2>
-        <span className="ready-badge">Architecture Ready</span>
+        <span className="not-connected-badge">Not Connected</span>
       </div>
       <div className="ticker-content">
+        <p className="status-line"><span className="status-dot" /> No live connection: nothing is currently running.</p>
         <p className="wire-label">LIVE PIPELINE</p>
-        <p className="pipeline-desc">A raw trade headline arrives from a live news source. An LLM call parses it into the same structured format the queued events already use: role, players involved, and teams. The same Market Heat and Targeted Comp Impact rules fire automatically on every incoming event. No manual event curation is needed in live mode, since the parser identifies and maps those effects automatically instead of relying on a pre-built event list.
-
-
-
-
-
-
-
-        </p>
+        <p className="pipeline-desc">A raw trade headline would arrive from a live news source. An LLM call would parse it into the same structured format the queued events already use: role, players involved, and teams. The same Market Heat and Targeted Comp Impact rules would fire automatically on every incoming event. No manual event curation would be needed in live mode, since the parser would identify and map those effects automatically instead of relying on a pre-built event list.</p>
         <button className="logic-toggle" onClick={() => setShowLogic((s) => !s)}>
           {showLogic ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
           View parsing logic
@@ -93,5 +86,4 @@ export default function LivePipeline() {
         )}
       </div>
     </section>);
-
 }

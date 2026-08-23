@@ -65,6 +65,9 @@ tr.changed { animation:rowFlash 1.3s ease-out; }
 .mode-toggle button.active { background:var(--red); color:#fff; }
 .mode-toggle button:hover:not(.active) { background:#16222b; color:#fff; }
 .live-pipeline .ready-badge { color:var(--green); font:600 9px "IBM Plex Mono",monospace; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; border:1px solid rgba(94,201,138,.3); border-radius:3px; }
+.live-pipeline .not-connected-badge { color:#8a98a3; font:600 9px "IBM Plex Mono",monospace; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; border:1px solid rgba(138,152,163,.3); border-radius:3px; }
+.live-pipeline .status-line { display:flex; align-items:center; gap:8px; color:#8a98a3; font:500 11px "IBM Plex Mono",monospace; margin:0 0 14px; }
+.live-pipeline .status-dot { width:7px; height:7px; border-radius:50%; background:#8a98a3; flex:none; }
 .pipeline-desc { font:400 13px/1.6 Inter,sans-serif; color:#e8edf1; margin:0 0 18px; }
 .logic-toggle { display:flex; align-items:center; gap:6px; background:transparent; border:0; color:#547c99; font:600 11px "IBM Plex Mono",monospace; cursor:pointer; padding:0; transition:color .15s; }
 .logic-toggle:hover { color:#7ba5c4; }
