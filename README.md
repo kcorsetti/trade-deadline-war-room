@@ -35,7 +35,7 @@ Each player's PV is a projected surplus value: what they'd be worth on the open 
 Two layers, both feeding the same underlying formula:
 
 - **Market Heat** *(automatic, board-wide):* every trade nudges a small multiplier for its broad role category (starting pitching, relief pitching, position players) where each departure thins the remaining pool at that role, so everyone left in that category ticks up slightly. No per-player mapping required.
-- **Targeted Comp Impact** *(curated, explained):* a smaller set of trades also carry a direct, named effect on one specific player, tagged as one of three types: **Scarcity** (a direct comp gets traded, remaining sellers gain value), **Buyer Exit** (a plausible suitor fills its need elsewhere, demand drops), or **Target Cost Signal** (a trade target's own club signals its stance, shifting acquisition cost).
+- **Targeted Comp Impact** *(curated):* a smaller set of trades also carry a direct, named effect on one specific player, tagged as one of three types: **Scarcity** (a direct comp gets traded, remaining sellers gain value), **Buyer Exit** (a plausible suitor fills its need elsewhere, demand drops), or **Target Cost Signal** (a trade target's own club signals its stance, shifting acquisition cost).
 
 ## Tech stack
 
