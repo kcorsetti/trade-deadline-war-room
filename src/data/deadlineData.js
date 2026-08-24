@@ -33,6 +33,14 @@ export const players = [
 
 export const trades = [
   {
+    headline: "Daulton Varsho traded to Astros for Spencer Arrighetti",
+    role: "Position Player",
+    eventType: "League trade",
+    affectedPlayer: "Lars Nootbaar",
+    ruleType: "Buyer Exit",
+    rationale: "Astros address outfield need: removes a plausible bidder for Nootbaar",
+  },
+  {
     headline: "LAD acquires Tarik Skubal for prospects",
     role: "SP",
     eventType: "League trade",
@@ -41,20 +49,20 @@ export const trades = [
     rationale: "Elite SP off the board:  thins the remaining SP supply, raising demand",
   },
   {
+    headline: "PHI trades prospects to SFG for Luis Arraez",
+    role: "Position Player",
+    eventType: "League trade",
+    affectedPlayer: "Isaac Paredes",
+    ruleType: "Target Cost Signal",
+    rationale: "A star-caliber infield bat is off the board: increases competition for remaining targets like Paredes",
+  },
+  {
     headline: "CHC acquires Clay Holmes for prospects",
     role: "SP",
     eventType: "League trade",
     affectedPlayer: "Reid Detmers",
     ruleType: "Target Cost Signal",
     rationale: "Another established starter off the board: fewer alternatives for teams seeking pitching, raising Detmers' price to acquire",
-  },
-  {
-    headline: "Daulton Varsho traded to Astros for Spencer Arrighetti",
-    role: "Position Player",
-    eventType: "League trade",
-    affectedPlayer: "Lars Nootbaar",
-    ruleType: "Buyer Exit",
-    rationale: "Astros address outfield need: removes a plausible bidder for Nootbaar",
   },
   {
     headline: "Caleb Ferguson traded to STL for cash considerations",
@@ -71,14 +79,6 @@ export const trades = [
     affectedPlayer: null,
     ruleType: null,
     rationale: null,
-  },
-  {
-    headline: "PHI trades prospects to SFG for Luis Arraez",
-    role: "Position Player",
-    eventType: "League trade",
-    affectedPlayer: "Isaac Paredes",
-    ruleType: "Target Cost Signal",
-    rationale: "A star-caliber infield bat is off the board: increases competition for remaining targets like Paredes",
   },
   {
     headline: "BAL trades Adley Rutschman to BOS for Carlos Narvaez, prospects",
