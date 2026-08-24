@@ -73,6 +73,14 @@ tr.changed { animation:rowFlash 1.3s ease-out; }
 .logic-toggle:hover { color:#7ba5c4; }
 .code-block { margin-top:10px; background:#0a1218; border:1px solid #1e2a33; border-left:2px solid #547c99; border-radius:4px; overflow:hidden; }
 .code-block pre { margin:0; padding:14px; font:500 11px/1.65 "IBM Plex Mono",monospace; color:#c4d2dc; white-space:pre; overflow-x:auto; }
-.legend { margin:12px 15px 0; padding-top:12px; border-top:1px solid var(--line); display:grid; gap:8px; color:var(--wr-muted); font:500 9px "IBM Plex Mono",monospace; }.dot { display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:6px; }.heat { background:#75a8c9; }.target { background:#f25b6c; }
+.legend { margin:12px 15px 0; padding-top:12px; border-top:1px solid var(--line); display:grid; gap:8px; color:var(--wr-muted); font:500 9px "IBM Plex Mono",monospace; }
+.portfolio-summary { margin:16px 15px 0; padding:14px; background:#0a1015; border:1px solid var(--line); border-radius:4px; display:grid; gap:4px; }
+.portfolio-label { font:600 9px "IBM Plex Mono",monospace; letter-spacing:.12em; color:#d44a58; text-transform:uppercase; margin:0; }
+.portfolio-value { font:600 20px "IBM Plex Mono",monospace; color:#ffffff; margin:0; letter-spacing:-.02em; }
+.portfolio-change { font:600 11px "IBM Plex Mono",monospace; margin:0; display:flex; align-items:baseline; gap:5px; }
+.portfolio-change.positive { color:var(--green); }
+.portfolio-change.negative { color:#ee7180; }
+.portfolio-change.neutral { color:#8a98a3; }
+.portfolio-today { font:400 10px "IBM Plex Mono",monospace; color:#8a98a3; }.dot { display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:6px; }.heat { background:#75a8c9; }.target { background:#f25b6c; }
 @media (max-width:1150px) { .dashboard-grid { grid-template-columns:1fr 330px; }.rules-panel { grid-column:1/-1; }.rules-panel .rule { display:inline-flex; width:25%; vertical-align:top; }.rule-group { display:none; }.rule:nth-of-type(3) { margin-top:0; } }
 @media (max-width:760px) { .war-room { padding:16px; }.board-header { align-items:flex-start; gap:18px; flex-direction:column; }.dashboard-grid { grid-template-columns:1fr; }.rules-panel { grid-column:auto; }.rules-panel .rule { display:flex; width:100%; }.ticker-panel { min-height:410px; } th:last-child { min-width:210px; } }

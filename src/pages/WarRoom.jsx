@@ -25,7 +25,7 @@ export default function WarRoom() {
         ) : (
           <LivePipeline />
         )}
-        <RulesPanel rules={simulation.rules} setRules={simulation.setRules} />
+        <RulesPanel rules={simulation.rules} setRules={simulation.setRules} players={simulation.players} />
       </div>
     </main>
   );
