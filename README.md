@@ -41,17 +41,6 @@ Two layers, both feeding the same underlying formula:
 
 React, built and exported via [Base44](https://base44.com). UI components from shadcn/ui and Radix, icons from Lucide.
 
-## Running locally
-
-```bash
-git clone https://github.com/kcorsetti/trade-deadline-war-room.git
-cd trade-deadline-war-room
-npm install
-npm run dev
-```
-
-Open the local URL Vite prints in the terminal. The trade-board data and logic (`src/data/deadlineData.js`, `src/hooks/useTradeSimulation.js`) run entirely client-side and don't require any backend connection to explore.
-
 ## A note on the data
 
 Every player, PV figure, valuation formula, and adjustment rule in this project is an **illustrative placeholder** built to demonstrate the automation architecture. None of it reflects any team's actual internal valuations, methodology, or proprietary data. Real player names are used against a fictional valuation model for realism, not accuracy.
