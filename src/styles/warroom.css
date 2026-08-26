@@ -41,6 +41,9 @@ th:first-child { width:25%; } th:last-child { width:48%; }
 .how-label { font:600 10px "IBM Plex Mono",monospace; letter-spacing:.12em; color:#d44a58; text-transform:uppercase; }
 .how-section p { margin:0; font:400 13px/1.6 Inter,sans-serif; color:#e8edf1; }
 .how-disclaimer { margin:0; padding-top:14px; border-top:1px solid var(--line); font:400 11px/1.5 Inter,sans-serif; color:#8a98a3; font-style:italic; }
+.how-writeup { margin:0; padding-top:14px; border-top:1px solid var(--line); font:400 12px/1.5 Inter,sans-serif; color:#e8edf1; }
+.how-writeup a { color:#e5b75b; text-decoration:none; border-bottom:1px solid rgba(229,183,91,.4); transition:border-color .15s,color .15s; }
+.how-writeup a:hover { color:#f0c878; border-bottom-color:#e5b75b; }
 .positive { color:var(--green); }.negative { color:#ee7180; }.locked { opacity:.42; background:#0a1015; }
 tr.changed { animation:rowFlash 1.3s ease-out; }
 @keyframes rowFlash { 0% { background:rgba(229,183,91,.25); } 100% { background:transparent; } }
