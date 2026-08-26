@@ -28,8 +28,8 @@ export default function HowItWorksButton() {
                 <span className="how-label">Simulation Modes</span>
                 <p><b>Next trade</b> steps through real, curated trades from the actual 2026 deadline, showing how each one moves the board. <b>Custom Trade</b> lets you test a hypothetical scenario of your own instead. <b>Live Mode</b> shows the architecture for how this would run off real-time trade news on an actual deadline day.</p>
               </div>
-              <p className="how-disclaimer">Dataset, valuation formula, and adjustment rules are illustrative placeholders demonstrating the automation architecture, not a representation of any team's actual internal model.</p>
               <p className="how-writeup">For additional information: <a href="https://wbanalytics.substack.com/p/trade-deadline-war-room-ai-tracker" target="_blank" rel="noopener noreferrer">Read the full writeup</a></p>
+              <p className="how-disclaimer">Dataset, valuation formula, and adjustment rules are illustrative placeholders demonstrating the automation architecture, not a representation of any team's actual internal model.</p>
             </div>
           </div>
         </div>
